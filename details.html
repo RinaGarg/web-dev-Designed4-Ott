@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Content Details</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>OTT Platform Clone</h1>
+    </header>
+    <main>
+        <section id="content-details">
+            <h2 id="content-title">Movie/Series Title</h2>
+            <div class="details">
+                <img id="content-image" src="" alt="Movie/Series Poster">
+                <div class="info">
+                    <p><strong>Genre:</strong> <span id="content-genre"></span></p>
+                    <p><strong>Rating:</strong> <span id="content-rating"></span></p>
+                    <p><strong>Description:</strong> <span id="content-description"></span></p>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const contentData = [
+                { id: 1, title: "Bhola", image: "images/movie1.jpg", genre: "Action", rating: "8.5/10", description: "Bhola description..." },
+                { id: 2, title: "Bharamastra", image: "images/movie2.jpg", genre: "Drama", rating: "7.8/10", description: "Bharamastra description..." },
+                { id: 3, title: "Antim ", image: "images/movie3.jpg", genre: "Drama", rating: "7.2/10", description: "Antim  description..." },
+                { id: 4, title: "Aashiqui", image: "images/movie4.jpg", genre: "Action", rating: "8.5/10", description: "Aashiqui description..." },
+                { id: 5, title: "Saiya ji Dagabaaj", image: "images/movie5.jpg", genre: "Drama", rating: "7.0/10", description: "Saiya ji Dagabaaj description..." },
+                { id: 6, title: "Pushpa", image: "images/movie6.jpg", genre: "Drama", rating: "6.8/10", description: "Pushpa description..." },
+
+                { id: 11, title: "Asur", image: "images/series1.jpg", genre: "Thriller", rating: "9.0/10", description: "Asur description..." },
+                { id: 12, title: "Mirzapur", image: "images/series2.jpg", genre: "Comedy", rating: "8.2/10", description: "Mirzapur description..." },
+                { id: 13, title: "Money Heist", image: "images/series3.jpg", genre: "Thriller", rating: "9.0/10", description: "Money Heist description..." },
+                { id: 14, title: "Farzi", image: "images/series4.jpg", genre: "Comedy", rating: "8.2/10", description: "Farzi description..." },
+                { id: 15, title: "Dark", image: "images/series5.jpg", genre: "Thriller", rating: "9.0/10", description: "Dark description..." },
+                { id: 16, title: "Squid Game", image: "images/series6.jpg", genre: "Comedy", rating: "8.2/10", description: "Squid Game description..." },
+
+                { id: 5, title: "Wednesday", image: "images/recommended1.jpg", genre: "Sci-Fi", rating: "8.7/10", description: "Wednesday description..." },
+                { id: 6, title: "Stranger Things", image: "images/recommended2.jpg", genre: "Horror", rating: "7.9/10", description: "Stranger Things description..." },
+            ];
+
+            function getQueryParam(param) {
+                const urlParams = new URLSearchParams(window.location.search);
+                return urlParams.get(param);
+            }
+
+            const contentId = parseInt(getQueryParam('id'));
+            const contentItem = contentData.find(item => item.id === contentId);
+
+            if (contentItem) {
+                document.getElementById('content-title').textContent = contentItem.title;
+                document.getElementById('content-image').src = contentItem.image;
+                document.getElementById('content-genre').textContent = contentItem.genre;
+                document.getElementById('content-rating').textContent = contentItem.rating;
+                document.getElementById('content-description').textContent = contentItem.description;
+            } else {
+                document.getElementById('content-details').innerHTML = '<p>Content not found</p>';
+            }
+        });
+    </script>
+</body>
+</html>
