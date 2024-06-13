@@ -19,8 +19,8 @@ document.addEventListener('DOMContentLoaded', () => {
     ];
 
     const recommendedContent = [
-        { id: 5, title: "Wednesday", image: "images/recommended1.jpg" },
-        { id: 6, title: "Stranger Things", image: "images/recommended2.jpg" },
+        { id: 21, title: "Wednesday", image: "images/recommended1.jpg" },
+        { id: 22, title: "Stranger Things", image: "images/recommended2.jpg" },
         
     ];
 
